@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Casos de Uso - SICEN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: 3px solid #333;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diagrama de Casos de Uso - SICEN</h1>
+
+        <svg viewBox="0 0 1800 1100" xmlns="http://www.w3.org/2000/svg">
+            <!-- FONDO BLANCO DEL SISTEMA -->
+            <rect x="300" y="100" width="1200" height="900" fill="white" stroke="#000" stroke-width="3" rx="10"/>
+
+            <!-- TÍTULO DEL SISTEMA -->
+            <text x="800" y="135" font-size="20" font-weight="bold" text-anchor="middle" fill="#000">
+                SICEN - Sistema de Gestión de Censos Escolares
+            </text>
+
+            <!-- ============ ACTOR IZQUIERDA: DIRECTOR ============ -->
+            <!-- Cabeza (círculo) -->
+            <circle cx="80" cy="200" r="30" fill="none" stroke="#000" stroke-width="2.5"/>
+            <!-- Cuerpo (línea vertical) -->
+            <line x1="80" y1="230" x2="80" y2="310" stroke="#000" stroke-width="2.5"/>
+            <!-- Brazos (línea horizontal) -->
+            <line x1="30" y1="260" x2="130" y2="260" stroke="#000" stroke-width="2.5"/>
+            <!-- Pierna izquierda -->
+            <line x1="80" y1="310" x2="50" y2="380" stroke="#000" stroke-width="2.5"/>
+            <!-- Pierna derecha -->
+            <line x1="80" y1="310" x2="110" y2="380" stroke="#000" stroke-width="2.5"/>
+            <!-- Nombre del actor -->
+            <text x="80" y="430" font-size="16" font-weight="bold" text-anchor="middle" fill="#000">Director de Centro</text>
+            <text x="80" y="455" font-size="16" font-weight="bold" text-anchor="middle" fill="#000">Educativo</text>
+
+            <!-- ============ CASOS DE USO DIRECTOR (IZQUIERDA) ============ -->
+            <!-- 1. Llenar Formulario -->
+            <ellipse cx="450" cy="200" rx="110" ry="60" fill="#d4e8f7" stroke="#000" stroke-width="2.5"/>
+            <text x="450" y="195" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Llenar Formulario</text>
+            <text x="450" y="215" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">de Censo</text>
+            <!-- Línea conectora -->
+            <line x1="150" y1="200" x2="340" y2="200" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 2. Ver Estado -->
+            <ellipse cx="450" cy="330" rx="110" ry="60" fill="#d4e8f7" stroke="#000" stroke-width="2.5"/>
+            <text x="450" y="325" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Ver Estado de</text>
+            <text x="450" y="345" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Envíos</text>
+            <!-- Línea conectora -->
+            <line x1="150" y1="280" x2="340" y2="330" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 3. Editar Formulario -->
+            <ellipse cx="450" cy="460" rx="110" ry="60" fill="#d4e8f7" stroke="#000" stroke-width="2.5"/>
+            <text x="450" y="455" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Editar Formulario</text>
+            <text x="450" y="475" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Enviado</text>
+            <!-- Línea conectora -->
+            <line x1="150" y1="330" x2="340" y2="460" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 4. Recibir Notificaciones -->
+            <ellipse cx="450" cy="590" rx="110" ry="60" fill="#d4e8f7" stroke="#000" stroke-width="2.5"/>
+            <text x="450" y="585" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Recibir</text>
+            <text x="450" y="605" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Notificaciones</text>
+            <!-- Línea conectora -->
+            <line x1="150" y1="380" x2="340" y2="590" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 5. Descargar Reportes -->
+            <ellipse cx="450" cy="720" rx="110" ry="60" fill="#d4e8f7" stroke="#000" stroke-width="2.5"/>
+            <text x="450" y="715" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Descargar</text>
+            <text x="450" y="735" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Reportes</text>
+            <!-- Línea conectora -->
+            <line x1="150" y1="420" x2="340" y2="720" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- ============ CASOS DE USO ADMINISTRADOR (DERECHA) ============ -->
+            <!-- 1. Crear Formularios -->
+            <ellipse cx="1150" cy="200" rx="110" ry="60" fill="#e8d4f7" stroke="#000" stroke-width="2.5"/>
+            <text x="1150" y="200" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Crear</text>
+            <text x="1150" y="220" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Formularios</text>
+            <!-- Línea conectora -->
+            <line x1="1260" y1="200" x2="1500" y2="200" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 2. Gestionar Censos -->
+            <ellipse cx="1150" cy="330" rx="110" ry="60" fill="#e8d4f7" stroke="#000" stroke-width="2.5"/>
+            <text x="1150" y="330" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Gestionar</text>
+            <text x="1150" y="350" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Censos</text>
+            <!-- Línea conectora -->
+            <line x1="1260" y1="280" x2="1500" y2="280" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 3. Ver Reportes -->
+            <ellipse cx="1150" cy="460" rx="110" ry="60" fill="#e8d4f7" stroke="#000" stroke-width="2.5"/>
+            <text x="1150" y="455" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Ver Reportes</text>
+            <text x="1150" y="475" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">y Estadísticas</text>
+            <!-- Línea conectora -->
+            <line x1="1260" y1="380" x2="1500" y2="380" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 4. Crear Cuentas -->
+            <ellipse cx="1150" cy="590" rx="110" ry="60" fill="#e8d4f7" stroke="#000" stroke-width="2.5"/>
+            <text x="1150" y="585" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Crear Cuentas</text>
+            <text x="1150" y="605" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">de Usuarios</text>
+            <!-- Línea conectora -->
+            <line x1="1260" y1="480" x2="1500" y2="480" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 5. Validar Datos -->
+            <ellipse cx="1350" cy="200" rx="110" ry="60" fill="#e8d4f7" stroke="#000" stroke-width="2.5"/>
+            <text x="1350" y="200" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Validar Datos</text>
+            <text x="1350" y="220" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">del Censo</text>
+            <!-- Línea conectora -->
+            <line x1="1500" y1="200" x2="1560" y2="200" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 6. Asignar Técnicos -->
+            <ellipse cx="1350" cy="330" rx="110" ry="60" fill="#e8d4f7" stroke="#000" stroke-width="2.5"/>
+            <text x="1350" y="325" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Asignar Técnicos</text>
+            <text x="1350" y="345" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">a Centros</text>
+            <!-- Línea conectora -->
+            <line x1="1500" y1="250" x2="1560" y2="330" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 7. Generar Reportes Consolidados -->
+            <ellipse cx="1350" cy="460" rx="110" ry="60" fill="#e8d4f7" stroke="#000" stroke-width="2.5"/>
+            <text x="1350" y="455" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Reportes</text>
+            <text x="1350" y="475" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Consolidados</text>
+            <!-- Línea conectora -->
+            <line x1="1500" y1="330" x2="1560" y2="460" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 8. Monitorear Actividad -->
+            <ellipse cx="1350" cy="590" rx="110" ry="60" fill="#e8d4f7" stroke="#000" stroke-width="2.5"/>
+            <text x="1350" y="585" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Monitorear</text>
+            <text x="1350" y="605" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Actividad</text>
+            <!-- Línea conectora -->
+            <line x1="1500" y1="380" x2="1560" y2="590" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- 9. Configurar Períodos -->
+            <ellipse cx="1350" cy="720" rx="110" ry="60" fill="#e8d4f7" stroke="#000" stroke-width="2.5"/>
+            <text x="1350" y="715" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Configurar</text>
+            <text x="1350" y="735" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Períodos</text>
+            <!-- Línea conectora -->
+            <line x1="1500" y1="480" x2="1560" y2="720" stroke="#000" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+            <!-- ============ ACTOR DERECHA: ADMINISTRADOR ============ -->
+            <!-- Cabeza (círculo) -->
+            <circle cx="1670" cy="200" r="30" fill="none" stroke="#000" stroke-width="2.5"/>
+            <!-- Cuerpo (línea vertical) -->
+            <line x1="1670" y1="230" x2="1670" y2="310" stroke="#000" stroke-width="2.5"/>
+            <!-- Brazos (línea horizontal) -->
+            <line x1="1620" y1="260" x2="1720" y2="260" stroke="#000" stroke-width="2.5"/>
+            <!-- Pierna izquierda -->
+            <line x1="1670" y1="310" x2="1640" y2="380" stroke="#000" stroke-width="2.5"/>
+            <!-- Pierna derecha -->
+            <line x1="1670" y1="310" x2="1700" y2="380" stroke="#000" stroke-width="2.5"/>
+            <!-- Nombre del actor -->
+            <text x="1670" y="430" font-size="16" font-weight="bold" text-anchor="middle" fill="#000">Administrador</text>
+            <text x="1670" y="455" font-size="16" font-weight="bold" text-anchor="middle" fill="#000">del MEP</text>
+
+            <!-- ============ LEYENDA ============ -->
+            <g transform="translate(320, 1020)">
+                <text x="0" y="0" font-size="14" font-weight="bold" fill="#000">REFERENCIAS:</text>
+
+                <!-- Azul claro = Director -->
+                <ellipse cx="20" cy="25" rx="20" ry="15" fill="#d4e8f7" stroke="#000" stroke-width="1.5"/>
+                <text x="50" y="30" font-size="13" fill="#000">Funciones del Director</text>
+
+                <!-- Púrpura claro = Administrador -->
+                <ellipse cx="20" cy="55" rx="20" ry="15" fill="#e8d4f7" stroke="#000" stroke-width="1.5"/>
+                <text x="50" y="60" font-size="13" fill="#000">Funciones del Administrador</text>
+            </g>
+
+            <!-- Definición de punta de flecha -->
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#000"/>
+                </marker>
+            </defs>
+        </svg>
+    </div>
+</body>
+</html>

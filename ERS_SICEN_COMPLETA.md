@@ -20,27 +20,19 @@
 - **Estado:** Activo con 9 épicas y 20 historias de usuario
 
 ### 📍 Repositorio GitHub
-- **URL:** [Será proporcionada después de crear el repositorio]
+- **URL:** https://github.com/dpinam/SICEN
 - **Nombre:** SICEN
 - **Descripción:** Sistema de Gestión de Censos Escolares
-- **Contenido:** Especificación completa, documentación técnica, guías de implementación
+- **Contenido:** Especificación completa y documentación técnica
 - **Estructura:**
   - /docs - Documentación y versión Word
   - /diagramas - Diagramas interactivos HTML
   - Archivos MD con especificaciones
 
-### 👤 Contactos del Proyecto
-- **Estudiante:** Dylan Piña Moya
-- **Email Institucional:** dpinam@ucenfotec.ac.cr
-- **Profesor Supervisor:** Verónica Mora Arias
-- **Email Profesor:** vmora@ucenfotec.ac.cr
-- **Institución:** Universidad CENFO Técnica
-
 ### 📚 Documentos Relacionados
 - **BITACORA_SICEN.md** - Registro completo de actividades del proyecto
-- **GUIA_IMPLEMENTACION_JIRA_SICEN.md** - Guía paso a paso para Jira
 - **MATRIZ_TRAZABILIDAD_SICEN.md** - Validación de cobertura (100%)
-- **README.md** - Descripción profesional del proyecto
+- **README.md** - Descripción del proyecto
 - **BITACORA_SICEN.docx** - Versión Word para presentación formal
 
 ### 🔗 Enlaces Externos Relevantes

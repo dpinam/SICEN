@@ -27,16 +27,13 @@
 - **Visibilidad:** Público
 - **Archivos:** Especificación completa + documentación
 
-### 👤 Contactos
+### 👤 Autor
 - **Estudiante:** Dylan Piña Moya (dpinam@ucenfotec.ac.cr)
-- **Profesor:** Verónica Mora Arias (vmora@ucenfotec.ac.cr)
-- **Institución:** Universidad CENFO Técnica
 
 ### 📚 Documentos Clave
 1. ERS_SICEN_COMPLETA.md (20 requisitos funcionales)
-2. GUIA_IMPLEMENTACION_JIRA_SICEN.md (9 épicas + 20 historias)
-3. MATRIZ_TRAZABILIDAD_SICEN.md (validación 100%)
-4. BITACORA_SICEN.md (registro completo)
+2. MATRIZ_TRAZABILIDAD_SICEN.md (validación 100%)
+3. BITACORA_SICEN.md (registro completo)
 
 ---
 
@@ -229,8 +226,6 @@ La bitácora documenta todas las actividades realizadas en el proyecto SICEN des
 **Total Story Points:** 147  
 **Criterios de Aceptación:** Cada historia incluye 2-3 criterios en formato Given-When-Then
 
-**Documento Generado:** GUIA_IMPLEMENTACION_JIRA_SICEN.md (640 líneas)
-
 **Resultado:** Completado exitosamente
 
 ---
@@ -282,12 +277,10 @@ SICEN/
 ├── README.md
 ├── BITACORA_SICEN.md
 ├── ERS_SICEN_COMPLETA.md
-├── GUIA_IMPLEMENTACION_JIRA_SICEN.md
 ├── MATRIZ_TRAZABILIDAD_SICEN.md
 ├── docs/
-│   ├── BITACORA_SICEN.docx
-│   ├── diagramas/
-│   └── recursos/
+│   └── BITACORA_SICEN.docx
+├── diagramas/
 ├── .gitignore
 └── LICENSE
 ```
@@ -359,10 +352,8 @@ SICEN/
 - Configuración de Sprint 1
 - Procedimientos para agregar colaboradores
 
-**Documento:** GUIA_IMPLEMENTACION_JIRA_SICEN.md (640 líneas)
-
 **Secciones:**
-- Paso 1: Agregar profesor como colaborador
+- Paso 1: Agregar colaborador al proyecto
 - Paso 2: Crear 9 épicas (especificaciones)
 - Paso 3: Crear 20 historias (especificaciones)
 - Paso 4: Configurar Sprint 1
@@ -522,7 +513,6 @@ SICEN/
 
 **Documentos Revisados:**
 - ERS_SICEN_Completa.md
-- GUIA_IMPLEMENTACION_JIRA_SICEN.md
 - MATRIZ_TRAZABILIDAD_SICEN.md
 - BITACORA_SICEN.md
 - Páginas HTML (diagramas y casos de uso)
@@ -551,7 +541,6 @@ SICEN/
 - README.md (Descripción profesional del proyecto)
 - BITACORA_SICEN.md (Esta bitácora completa)
 - ERS_SICEN_COMPLETA.md (Especificación de requisitos)
-- GUIA_IMPLEMENTACION_JIRA_SICEN.md (Guía de Jira)
 - MATRIZ_TRAZABILIDAD_SICEN.md (Matriz de trazabilidad)
 - .gitignore
 - LICENSE
@@ -576,7 +565,6 @@ SICEN/
 | README.md | Descripción profesional del proyecto | 150+ | Completado |
 | ERS_SICEN_Completa.md | Especificación de 20 requisitos funcionales | 448 | Completado |
 | MATRIZ_TRAZABILIDAD.md | Mapeo de requisitos, épicas e historias | 300+ | Completado |
-| GUIA_IMPLEMENTACION_JIRA_SICEN.md | Guía paso a paso de Jira | 640 | Completado |
 | BITACORA_SICEN.md | Bitácora de proyecto completa | 600+ | Completado |
 | BITACORA_SICEN.docx | Versión Word profesional | - | Completado |
 | sicen_diagrama.html | Diagrama interactivo de navegación | 300+ | Completado |
@@ -623,7 +611,7 @@ SICEN/
 ---
 
 ### Problema 3: Colaboradores no Disponibles Inicialmente
-**Descripción:** Profesora Verónica Mora Arias no se encontraba en búsqueda inicial  
+**Descripción:** El colaborador invitado no se encontraba en la búsqueda inicial del workspace  
 **Causa:** Usuario no invitado aún al workspace de Jira Cloud  
 **Solución:** Requerir invitación explícita desde administrador de workspace  
 **Resultado:** Pendiente de confirmación de invitación
@@ -688,7 +676,7 @@ SICEN/
 - Velocidad Estimada: 21 puntos/sprint
 
 ### Documentación
-- Documentos Principales: 8
+- Documentos Principales: 7
 - Líneas de Documentación: 3,500+
 - Cobertura de Especificaciones: Completa (100%)
 - Trazabilidad RF a Historias: 100%
@@ -707,7 +695,7 @@ El proyecto SICEN ha completado exitosamente todas las fases de análisis, espec
 
 ### Logros Principales
 - ✓ Especificación completa de requisitos del sistema
-- ✓ Documentación profesional y clara (8 documentos, 3,500+ líneas)
+- ✓ Documentación profesional y clara (7 documentos, 3,500+ líneas)
 - ✓ 9 Épicas creadas y configuradas en Jira
 - ✓ 20 Historias de Usuario creadas con criterios de aceptación
 - ✓ Sprint 1 inicializado con 21 story points (base de autenticación y usuarios)

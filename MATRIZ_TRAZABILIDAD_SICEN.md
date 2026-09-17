@@ -2,7 +2,7 @@
 ## SICEN - Sistema de Gestión de Censos Escolares
 
 **Autor:** Dylan Piña Moya  
-**Correo:** carlospinav19@gmail.com  
+**Correo:** dpinam@ucenfotec.ac.cr  
 **Periodo:** 2026-C3  
 **Fecha:** Septiembre 2026  
 **Versión:** 1.0

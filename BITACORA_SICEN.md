@@ -15,22 +15,22 @@
 
 ## REFERENCIAS Y ENLACES DEL PROYECTO
 
-### 📍 Proyecto Jira
+### Proyecto Jira
 - **URL:** https://ucenfotec-tarea1.atlassian.net/
 - **Project Key:** WCDXKDXO
 - **Estado:** Activo y Configurado
 - **Acceso:** Workspace CENFO Técnica
 
-### 📍 Repositorio GitHub
+### Repositorio GitHub
 - **URL:** https://github.com/dpinam/SICEN
 - **Nombre:** SICEN
 - **Visibilidad:** Público
 - **Archivos:** Especificación completa + documentación
 
-### 👤 Autor
+### Autor
 - **Estudiante:** Dylan Piña Moya (dpinam@ucenfotec.ac.cr)
 
-### 📚 Documentos Clave
+### Documentos Clave
 1. ERS_SICEN_COMPLETA.md (20 requisitos funcionales)
 2. MATRIZ_TRAZABILIDAD_SICEN.md (validación 100%)
 3. BITACORA_SICEN.md (registro completo)
@@ -43,11 +43,11 @@ La bitácora documenta todas las actividades realizadas en el proyecto SICEN des
 
 **Estado Actual:** En Implementación  
 **Componentes Completados:** 
-- ✓ Especificación de 20 Requisitos Funcionales
-- ✓ Definición de 9 Épicas
-- ✓ Creación de 20 Historias de Usuario
-- ✓ Documentación Técnica Completa
-- ✓ Configuración de Jira y Sprint 1
+- Especificación de 20 Requisitos Funcionales
+- Definición de 9 Épicas
+- Creación de 20 Historias de Usuario
+- Documentación Técnica Completa
+- Configuración de Jira y Sprint 1
 
 ---
 
@@ -492,11 +492,7 @@ SICEN/
 - Validación de story points consistentes
 
 **Validaciones Realizadas:**
-- RF-001 a RF-020: Todos mapeados a épicas ✓
-- 9 Épicas: Todas con historias asignadas ✓
-- 20 Historias: Todas con criterios en formato Given-When-Then ✓
-- Story Points: Utilizando serie de Fibonacci (2, 3, 5, 8, 13) ✓
-
+- RF-001 a RF-020: Todos mapeados a épicas - 9 Épicas: Todas con historias asignadas - 20 Historias: Todas con criterios en formato Given-When-Then - Story Points: Utilizando serie de Fibonacci (2, 3, 5, 8, 13) 
 **Resultado:** 100% de cobertura validada
 
 ---
@@ -621,15 +617,15 @@ SICEN/
 ## AVANCES PRINCIPALES
 
 ### Fase Completada
-1. ✓ Definición de Alcance y Objetivos
-2. ✓ Identificación de Usuarios y Roles
-3. ✓ Especificación de 20 Requisitos Funcionales
-4. ✓ Definición de 9 Épicas
-5. ✓ Definición de 20 Historias de Usuario
-6. ✓ Documentación Técnica Completa (5 documentos)
-7. ✓ Creación de 9 Épicas en Jira
-8. ✓ Creación de 20 Historias de Usuario en Jira
-9. ✓ Sprint 1 Planificado e Inicializado
+1. Definición de Alcance y Objetivos
+2. Identificación de Usuarios y Roles
+3. Especificación de 20 Requisitos Funcionales
+4. Definición de 9 Épicas
+5. Definición de 20 Historias de Usuario
+6. Documentación Técnica Completa (5 documentos)
+7. Creación de 9 Épicas en Jira
+8. Creación de 20 Historias de Usuario en Jira
+9. Sprint 1 Planificado e Inicializado
 
 ### Fase En Progreso
 - Creación del Repositorio GitHub
@@ -694,13 +690,13 @@ SICEN/
 El proyecto SICEN ha completado exitosamente todas las fases de análisis, especificación y configuración en Jira. Se han documentado 20 requisitos funcionales de manera clara y profesional, agrupados en 9 épicas temáticas y desglosados en 20 historias de usuario con criterios de aceptación detallados en formato Given-When-Then.
 
 ### Logros Principales
-- ✓ Especificación completa de requisitos del sistema
-- ✓ Documentación profesional y clara (7 documentos, 3,500+ líneas)
-- ✓ 9 Épicas creadas y configuradas en Jira
-- ✓ 20 Historias de Usuario creadas con criterios de aceptación
-- ✓ Sprint 1 inicializado con 21 story points (base de autenticación y usuarios)
-- ✓ Matriz de trazabilidad con cobertura 100%
-- ✓ Diagramas interactivos de navegación y casos de uso
+- Especificación completa de requisitos del sistema
+- Documentación profesional y clara (7 documentos, 3,500+ líneas)
+- 9 Épicas creadas y configuradas en Jira
+- 20 Historias de Usuario creadas con criterios de aceptación
+- Sprint 1 inicializado con 21 story points (base de autenticación y usuarios)
+- Matriz de trazabilidad con cobertura 100%
+- Diagramas interactivos de navegación y casos de uso
 
 ### Estado Final
 **Proyecto SICEN:** Listo para entrega y presentación

@@ -308,15 +308,15 @@ Sprint: [Sprint assignment]
 
 ## 8. CRITERIOS DE FINALIZACIÓN
 
-✓ Cada requisito funcional está mapeado a una historia de usuario  
-✓ Cada historia tiene mínimo 3 criterios de aceptación  
-✓ Cada criterio está escrito en formato Given-When-Then  
-✓ Story points asignados usando escala Fibonacci  
-✓ Tasks de desarrollo y testing identificadas  
-✓ Componentes frontend y backend documentados  
-✓ Esquema de BD normalizado y documentado  
-✓ Épicas agrupadas por funcionalidad  
-✓ Sprints balanceados por carga de trabajo  
+Cada requisito funcional está mapeado a una historia de usuario  
+Cada historia tiene mínimo 3 criterios de aceptación  
+Cada criterio está escrito en formato Given-When-Then  
+Story points asignados usando escala Fibonacci  
+Tasks de desarrollo y testing identificadas  
+Componentes frontend y backend documentados  
+Esquema de BD normalizado y documentado  
+Épicas agrupadas por funcionalidad  
+Sprints balanceados por carga de trabajo  
 
 ---
 

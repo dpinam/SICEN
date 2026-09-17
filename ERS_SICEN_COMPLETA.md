@@ -13,13 +13,13 @@
 
 ## REFERENCIAS Y ENLACES
 
-### 📍 Proyecto Jira
+### Proyecto Jira
 - **URL:** https://ucenfotec-tarea1.atlassian.net/
 - **Project Key:** WCDXKDXO
 - **Tipo:** Jira Software (Scrum)
 - **Estado:** Activo con 9 épicas y 20 historias de usuario
 
-### 📍 Repositorio GitHub
+### Repositorio GitHub
 - **URL:** https://github.com/dpinam/SICEN
 - **Nombre:** SICEN
 - **Descripción:** Sistema de Gestión de Censos Escolares
@@ -29,13 +29,13 @@
   - /diagramas - Diagramas interactivos HTML
   - Archivos MD con especificaciones
 
-### 📚 Documentos Relacionados
+### Documentos Relacionados
 - **BITACORA_SICEN.md** - Registro completo de actividades del proyecto
 - **MATRIZ_TRAZABILIDAD_SICEN.md** - Validación de cobertura (100%)
 - **README.md** - Descripción del proyecto
 - **BITACORA_SICEN.docx** - Versión Word para presentación formal
 
-### 🔗 Enlaces Externos Relevantes
+### Enlaces Externos Relevantes
 - **Ministerio de Educación Pública (MEP):** www.mep.go.cr
 - **Dirección de Administración Educativa (DAE):** [Incluir URL de DAE del MEP]
 - **CENFO Técnica:** www.ucenfotec.ac.cr
@@ -44,7 +44,7 @@
   - WCAG 2.1: https://www.w3.org/WAI/WCAG21/quickref/
   - OWASP Top 10: https://owasp.org/www-project-top-ten/
 
-### 📊 Sprint Actual
+### Sprint Actual
 - **Sprint 1 - Autenticación y Usuarios**
 - **Duración:** 16/09/2026 - 30/09/2026
 - **Story Points:** 21

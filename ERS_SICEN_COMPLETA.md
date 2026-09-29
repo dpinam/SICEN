@@ -357,18 +357,19 @@ El sistema incluye:
 
 | Componente | Tecnología | Versión |
 |-----------|-----------|---------|
-| Frontend | React.js | 18.0+ |
+| Frontend | HTML5 + CSS3 + JavaScript | - |
 | Backend | Node.js + Express | 18.0+ |
-| Base de Datos | PostgreSQL | 14.0+ |
+| Base de Datos | MongoDB Atlas (NoSQL) | 6.0+ |
 | Autenticación | JWT (JSON Web Tokens) | - |
 | API | REST | - |
 | Hosting | AWS/Azure/DigitalOcean | - |
 
 ### 5.2 Lenguajes y Frameworks
-- **JavaScript/TypeScript:** Para desarrollar frontend y backend
-- **React:** Framework para interfaz de usuario
-- **Express.js:** Framework para API REST
-- **PostgreSQL:** Base de datos relacional
+- **JavaScript:** Para desarrollar frontend (vanilla) y backend
+- **HTML5 / CSS3:** Estructura y presentación del frontend
+- **Express.js:** Framework para API REST sobre Node.js
+- **MongoDB Atlas:** Base de datos NoSQL en la nube (colecciones orientadas a documentos)
+- **Mongoose:** ODM para modelado de esquemas sobre MongoDB
 - **Docker:** Containerización de aplicación
 
 ### 5.3 Normativas y Estándares
@@ -426,7 +427,7 @@ chore: actualizar dependencias de seguridad
 - **Hash de Contraseñas:** bcrypt con salt mínimo de 10
 - **Protección CSRF:** Tokens CSRF en formularios
 - **Validación de Entrada:** Sanitización de todos los inputs
-- **Protección SQL Injection:** Uso de prepared statements
+- **Protección contra Inyección NoSQL:** Sanitización de queries y uso de esquemas Mongoose
 - **Rate Limiting:** Máximo 100 requests/min por IP
 
 #### 5.4.2 Cumplimiento de Regulaciones

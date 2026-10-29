@@ -49,10 +49,12 @@
   // Catálogo de módulos del sistema (ver ESPECIFICACION_DISENO_SICEN.md y
   // MATRIZ_TRAZABILIDAD_SICEN.md). Solo "users" está implementado en el
   // Avance 1; el resto se muestra como referencia del alcance completo.
+  // El campo "icon" referencia una clave de MODULE_ICONS (íconos de línea
+  // en insignia circular, no emojis).
   const MODULES = [
     {
       id: 'users',
-      icon: '👤',
+      icon: 'users',
       title: 'Gestión de Usuarios',
       desc: 'Creación de colaboradores y asignación de roles (RF-002, RF-019).',
       permission: 'users:manage',
@@ -60,7 +62,7 @@
     },
     {
       id: 'forms',
-      icon: '📝',
+      icon: 'forms',
       title: 'Formularios Censales',
       desc: 'Crear, editar y enviar formularios censales (RF-003 a RF-005, RF-010, RF-011).',
       permission: ['forms:manage', 'forms:fill', 'forms:submit'],
@@ -68,7 +70,7 @@
     },
     {
       id: 'census',
-      icon: '🏫',
+      icon: 'census',
       title: 'Ciclo de Vida del Censo',
       desc: 'Configurar, abrir, pausar y cerrar censos (RF-006 a RF-009).',
       permission: ['census:manage', 'census:view'],
@@ -76,7 +78,7 @@
     },
     {
       id: 'validation',
-      icon: '✅',
+      icon: 'validation',
       title: 'Validación de Datos',
       desc: 'Validar, aceptar o devolver formularios recibidos (RF-012 a RF-014).',
       permission: 'submissions:validate',
@@ -84,7 +86,7 @@
     },
     {
       id: 'reports',
-      icon: '📊',
+      icon: 'reports',
       title: 'Reportes',
       desc: 'Generar y descargar reportes consolidados (RF-015, RF-016).',
       permission: 'reports:view',
@@ -92,7 +94,7 @@
     },
     {
       id: 'notifications',
-      icon: '🔔',
+      icon: 'notifications',
       title: 'Notificaciones',
       desc: 'Centro de notificaciones del sistema (RF-017).',
       permission: ['notifications:view', 'notifications:send'],
@@ -100,7 +102,7 @@
     },
     {
       id: 'audit',
-      icon: '🕓',
+      icon: 'audit',
       title: 'Historial de Auditoría',
       desc: 'Historial auditable de acciones del sistema (RF-018).',
       permission: 'audit:view',
@@ -108,13 +110,34 @@
     },
     {
       id: 'assignment',
-      icon: '🧭',
+      icon: 'assignment',
       title: 'Asignación de Técnicos',
       desc: 'Asignar técnicos de la DAE a centros educativos (RF-020).',
       permission: 'users:manage',
       implemented: false,
     },
   ];
+
+  // Íconos de línea (estilo institucional, a insignia circular) que
+  // reemplazan los emojis genéricos en las tarjetas de módulos.
+  const MODULE_ICONS = {
+    users:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    forms:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="18" rx="2"/><path d="M9 2.5h6a1 1 0 0 1 1 1V5H8V3.5a1 1 0 0 1 1-1z"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="8" y1="19" x2="12" y2="19"/></svg>',
+    census:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-15.3 6.4L3 16"/><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8"/><polyline points="3 16 3 21 8 21"/><polyline points="21 8 21 3 16 3"/></svg>',
+    validation:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l7.5 2.8v6.2c0 4.6-3.2 7.8-7.5 10-4.3-2.2-7.5-5.4-7.5-10V5.3L12 2.5z"/><polyline points="8.8 12 11 14.2 15.3 9.8"/></svg>',
+    reports:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="5"/><line x1="19" y1="20" x2="19" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg>',
+    notifications:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>',
+    audit:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>',
+    assignment:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16.2 7.8 14.1 14.1 7.8 16.2 9.9 9.9 16.2 7.8"/></svg>',
+  };
 
   function hasPermission(userPermissions, required) {
     if (!required) return true;
@@ -144,7 +167,7 @@
       }
 
       card.innerHTML =
-        '<div class="module-thumb"><span class="module-icon">' + mod.icon + '</span></div>' +
+        '<div class="module-thumb"><span class="module-icon-badge">' + (MODULE_ICONS[mod.icon] || '') + '</span></div>' +
         '<div class="module-body">' +
         '<span class="module-title">' + mod.title + '</span>' +
         '<span class="module-desc">' + mod.desc + '</span>' +

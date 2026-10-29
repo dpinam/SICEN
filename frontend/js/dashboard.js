@@ -28,8 +28,23 @@
   const newUserMessage = document.getElementById('new-user-message');
   const newUserRoleSelect = document.getElementById('new-user-role');
   const newUserSubmitBtn = document.getElementById('new-user-submit');
+  const backToModulesBtn = document.getElementById('back-to-modules-btn');
+
+  const profileTrigger = document.getElementById('profile-trigger');
+  const profileAvatar = document.getElementById('profile-avatar');
+
+  const userDetailOverlay = document.getElementById('user-detail-overlay');
+  const userDetailClose = document.getElementById('user-detail-close');
+  const userDetailCloseBtn = document.getElementById('user-detail-close-btn');
+  const userDetailAvatar = document.getElementById('user-detail-avatar');
+  const userDetailName = document.getElementById('user-detail-name');
+  const userDetailRole = document.getElementById('user-detail-role');
+  const userDetailEmail = document.getElementById('user-detail-email');
+  const userDetailStatus = document.getElementById('user-detail-status');
+  const userDetailCreated = document.getElementById('user-detail-created');
 
   let currentUser = null;
+  let usersById = {};
 
   // Catálogo de módulos del sistema (ver ESPECIFICACION_DISENO_SICEN.md y
   // MATRIZ_TRAZABILIDAD_SICEN.md). Solo "users" está implementado en el
@@ -121,26 +136,86 @@
 
       let pillHtml;
       if (mod.implemented && authorized) {
-        pillHtml = '<span class="pill pill-available">Disponible</span>';
+        pillHtml = '<span class="pill pill-available">Abrir módulo &rsaquo;</span>';
       } else if (mod.implemented && !authorized) {
-        pillHtml = '<span class="pill pill-soon">Sin acceso</span>';
+        pillHtml = '<span class="pill pill-locked">Sin acceso</span>';
       } else {
         pillHtml = '<span class="pill pill-soon">Próximamente</span>';
       }
 
       card.innerHTML =
-        '<span class="module-icon">' + mod.icon + '</span>' +
+        '<div class="module-thumb"><span class="module-icon">' + mod.icon + '</span></div>' +
+        '<div class="module-body">' +
         '<span class="module-title">' + mod.title + '</span>' +
         '<span class="module-desc">' + mod.desc + '</span>' +
-        pillHtml;
+        pillHtml +
+        '</div>';
 
       if (available && mod.id === 'users') {
         card.addEventListener('click', () => {
-          usersCardEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          showUsersSection();
         });
       }
 
       moduleGridEl.appendChild(card);
+    });
+  }
+
+  function showUsersSection() {
+    usersCardEl.style.display = 'block';
+    loadUsersTable();
+    usersCardEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function hideUsersSection() {
+    usersCardEl.style.display = 'none';
+    moduleGridEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function getInitials(name) {
+    if (!name) return '?';
+    const letters = String(name)
+      .trim()
+      .split(/\s+/)
+      .map((part) => part[0])
+      .join('')
+      .slice(0, 2)
+      .toUpperCase();
+    return letters || '?';
+  }
+
+  function openUserDetailPanel(user) {
+    if (!user) return;
+    userDetailAvatar.textContent = getInitials(user.username);
+    userDetailName.textContent = user.username;
+    userDetailRole.textContent = user.role;
+    userDetailEmail.textContent = user.email;
+    const isActive = user.status === 'active';
+    userDetailStatus.innerHTML =
+      `<span class="status-dot ${isActive ? '' : 'inactive'}"></span>${isActive ? 'Activo' : 'Inactivo'}`;
+    userDetailCreated.textContent = formatDate(user.createdAt);
+    userDetailOverlay.style.display = 'flex';
+  }
+
+  function closeUserDetailPanel() {
+    userDetailOverlay.style.display = 'none';
+  }
+
+  if (backToModulesBtn) {
+    backToModulesBtn.addEventListener('click', hideUsersSection);
+  }
+
+  if (profileTrigger) {
+    profileTrigger.addEventListener('click', () => {
+      if (currentUser) openUserDetailPanel(currentUser);
+    });
+  }
+
+  if (userDetailClose) userDetailClose.addEventListener('click', closeUserDetailPanel);
+  if (userDetailCloseBtn) userDetailCloseBtn.addEventListener('click', closeUserDetailPanel);
+  if (userDetailOverlay) {
+    userDetailOverlay.addEventListener('click', (event) => {
+      if (event.target === userDetailOverlay) closeUserDetailPanel();
     });
   }
 
@@ -198,6 +273,10 @@
     try {
       const users = await apiRequest('/users', { method: 'GET' });
       usersCountEl.textContent = `${users.length} usuario(s) registrado(s)`;
+      usersById = {};
+      users.forEach((u) => {
+        usersById[u.id] = u;
+      });
 
       if (users.length === 0) {
         usersTableBodyEl.innerHTML =
@@ -218,7 +297,7 @@
                 : `<button type="button" class="btn-link btn-link-success" data-action="toggle-status" data-id="${u.id}" data-next-status="active">Activar</button>`;
           }
           return (
-            '<tr>' +
+            `<tr data-id="${u.id}">` +
             `<td>${escapeHtml(u.username)}</td>` +
             `<td>${escapeHtml(u.email)}</td>` +
             `<td><span class="role-tag">${escapeHtml(u.role)}</span></td>` +
@@ -264,6 +343,12 @@
     const button = event.target.closest('[data-action="toggle-status"]');
     if (button) {
       handleToggleStatus(button);
+      return;
+    }
+    const row = event.target.closest('tr[data-id]');
+    if (row) {
+      const user = usersById[row.dataset.id];
+      if (user) openUserDetailPanel(user);
     }
   });
 
@@ -306,8 +391,12 @@
     });
   }
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && newUserOverlay.style.display === 'flex') {
+    if (event.key !== 'Escape') return;
+    if (newUserOverlay.style.display === 'flex') {
       closeNewUserModal();
+    }
+    if (userDetailOverlay.style.display === 'flex') {
+      closeUserDetailPanel();
     }
   });
 
@@ -359,14 +448,14 @@
       currentUser = user;
       nameEl.textContent = user.username;
       roleEl.textContent = user.role;
+      if (profileAvatar) profileAvatar.textContent = getInitials(user.username);
       statusEl.textContent = `Sesión iniciada como ${user.email}.`;
 
       renderModules(user);
-
-      const permissions = Array.isArray(user.permissions) ? user.permissions : [];
-      if (permissions.includes('users:manage')) {
-        loadUsersTable();
-      }
+      // La sección de Gestión de usuarios permanece oculta hasta que la
+      // persona haga clic en la tarjeta del módulo (showUsersSection),
+      // y solo se renderiza como "disponible" si su rol tiene el permiso
+      // "users:manage" (ver renderModules / hasPermission).
     } catch (err) {
       statusEl.textContent = 'No fue posible cargar el perfil del usuario.';
     }

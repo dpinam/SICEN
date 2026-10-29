@@ -4,27 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SICEN - Panel principal</title>
+  <link rel="icon" type="image/png" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/favicon-180.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <header class="topbar">
-    <span class="brand">SICEN</span>
+    <div class="brand">
+      <img src="img/icon-mep-gold.png" alt="Ministerio de Educación Pública" class="brand-icon" />
+      <div class="brand-text">
+        <span class="brand-name">SICEN</span>
+        <span class="brand-sub">MEP · Gobierno de Costa Rica</span>
+      </div>
+    </div>
     <div class="user-info">
       <span id="user-name">Cargando...</span>
       <span class="badge" id="user-role"></span>
-      <button type="button" class="btn btn-secondary" id="logout-btn" style="width:auto; padding:6px 14px;">
+      <button type="button" class="btn btn-secondary" id="logout-btn" style="width:auto; padding:6px 14px; background:transparent; color:#fff; border-color:rgba(255,255,255,0.55);">
         Cerrar sesión
       </button>
     </div>
   </header>
 
   <main class="dashboard-content">
-    <div class="card">
+    <div class="card hero-card">
       <h2>Bienvenido(a) a SICEN</h2>
       <p class="text-aux">
         Sistema de Gestión de Censos Escolares del Ministerio de Educación Pública — Dirección de Administración Educativa (DAE).
       </p>
       <p id="dashboard-status">Verificando sesión...</p>
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+          <path d="M0,40 C150,80 350,0 600,30 C850,60 1050,10 1200,40 L1200,80 L0,80 Z" fill="rgba(255,255,255,0.10)"></path>
+          <path d="M0,55 C200,20 400,70 650,45 C900,20 1050,60 1200,35 L1200,80 L0,80 Z" fill="rgba(255,255,255,0.16)"></path>
+        </svg>
+      </div>
     </div>
 
     <div class="card">

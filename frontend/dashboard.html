@@ -18,8 +18,13 @@
       </div>
     </div>
     <div class="user-info">
-      <span id="user-name">Cargando...</span>
-      <span class="badge" id="user-role"></span>
+      <button type="button" class="profile-chip" id="profile-trigger" aria-label="Ver mi perfil" title="Ver mi perfil">
+        <span class="profile-avatar" id="profile-avatar">—</span>
+        <span class="profile-chip-text">
+          <span id="user-name">Cargando...</span>
+          <span class="badge" id="user-role"></span>
+        </span>
+      </button>
       <button type="button" class="btn btn-secondary" id="logout-btn" style="width:auto; padding:6px 14px; background:transparent; color:#fff; border-color:rgba(255,255,255,0.55);">
         Cerrar sesión
       </button>
@@ -43,7 +48,10 @@
 
     <div class="card">
       <div class="card-header">
-        <h2>Módulos del sistema</h2>
+        <div>
+          <span class="section-kicker">Panel principal</span>
+          <h2>Módulos del sistema</h2>
+        </div>
         <span class="text-aux">Según su rol: <strong id="module-role-label">—</strong></span>
       </div>
       <p class="text-aux" style="margin-top:4px;">
@@ -56,14 +64,15 @@
     <div class="card" id="users-card" style="display:none;">
       <div class="card-header">
         <h2>Gestión de usuarios</h2>
-        <div style="display:flex; align-items:center; gap:14px;">
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
           <span class="text-aux" id="users-count"></span>
+          <button type="button" class="btn-link" id="back-to-modules-btn">&larr; Volver a módulos</button>
           <button type="button" class="btn btn-primary" id="new-user-btn" style="width:auto; padding:8px 16px;">
             + Nuevo colaborador
           </button>
         </div>
       </div>
-      <p class="text-aux">Creación de colaboradores y asignación de roles (RF-002, RF-019).</p>
+      <p class="text-aux">Creación de colaboradores y asignación de roles (RF-002, RF-019). Haga clic sobre un usuario para ver su detalle.</p>
       <table class="data-table">
         <thead>
           <tr>
@@ -122,6 +131,44 @@
           </button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="user-detail-overlay" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>Detalle de usuario</h2>
+        <button type="button" class="modal-close" id="user-detail-close" aria-label="Cerrar">&times;</button>
+      </div>
+
+      <div class="detail-avatar-row">
+        <span class="profile-avatar profile-avatar-lg" id="user-detail-avatar">—</span>
+        <div>
+          <p class="detail-name" id="user-detail-name">—</p>
+          <span class="role-tag" id="user-detail-role">—</span>
+        </div>
+      </div>
+
+      <dl class="detail-list">
+        <div class="detail-row">
+          <dt>Correo electrónico</dt>
+          <dd id="user-detail-email">—</dd>
+        </div>
+        <div class="detail-row">
+          <dt>Estado</dt>
+          <dd id="user-detail-status">—</dd>
+        </div>
+        <div class="detail-row">
+          <dt>Fecha de alta</dt>
+          <dd id="user-detail-created">—</dd>
+        </div>
+      </dl>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="user-detail-close-btn" style="width:auto; padding:10px 18px;">
+          Cerrar
+        </button>
+      </div>
     </div>
   </div>
 

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SICEN - Panel principal</title>
+  <link rel="icon" type="image/png" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/favicon-180.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="img/icon-mep-gold.png" alt="Ministerio de Educación Pública" class="brand-icon" />
+      <div class="brand-text">
+        <span class="brand-name">SICEN</span>
+        <span class="brand-sub">MEP · Gobierno de Costa Rica</span>
+      </div>
+    </div>
+    <div class="user-info">
+      <span id="user-name">Cargando...</span>
+      <span class="badge" id="user-role"></span>
+      <button type="button" class="btn btn-secondary" id="logout-btn" style="width:auto; padding:6px 14px; background:transparent; color:#fff; border-color:rgba(255,255,255,0.55);">
+        Cerrar sesión
+      </button>
+    </div>
+  </header>
+
+  <main class="dashboard-content">
+    <div class="card hero-card">
+      <h2>Bienvenido(a) a SICEN</h2>
+      <p class="text-aux">
+        Sistema de Gestión de Censos Escolares del Ministerio de Educación Pública — Dirección de Administración Educativa (DAE).
+      </p>
+      <p id="dashboard-status">Verificando sesión...</p>
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+          <path d="M0,40 C150,80 350,0 600,30 C850,60 1050,10 1200,40 L1200,80 L0,80 Z" fill="rgba(255,255,255,0.10)"></path>
+          <path d="M0,55 C200,20 400,70 650,45 C900,20 1050,60 1200,35 L1200,80 L0,80 Z" fill="rgba(255,255,255,0.16)"></path>
+        </svg>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>Módulos del sistema</h2>
+        <span class="text-aux">Según su rol: <strong id="module-role-label">—</strong></span>
+      </div>
+      <p class="text-aux" style="margin-top:4px;">
+        El Avance 1 habilita el módulo de Autenticación y Gestión de Usuarios. Los módulos restantes
+        corresponden a los siguientes sprints del backlog (ver MATRIZ_TRAZABILIDAD_SICEN.md).
+      </p>
+      <div class="module-grid" id="module-grid"></div>
+    </div>
+
+    <div class="card" id="users-card" style="display:none;">
+      <div class="card-header">
+        <h2>Gestión de usuarios</h2>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <span class="text-aux" id="users-count"></span>
+          <button type="button" class="btn btn-primary" id="new-user-btn" style="width:auto; padding:8px 16px;">
+            + Nuevo colaborador
+          </button>
+        </div>
+      </div>
+      <p class="text-aux">Creación de colaboradores y asignación de roles (RF-002, RF-019).</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Alta</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="users-table-body">
+          <tr><td colspan="6" class="text-aux">Cargando usuarios...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="new-user-overlay" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>Nuevo colaborador</h2>
+        <button type="button" class="modal-close" id="new-user-close" aria-label="Cerrar">&times;</button>
+      </div>
+      <form id="new-user-form" novalidate>
+        <p class="form-message" id="new-user-message" role="alert" aria-live="polite"></p>
+
+        <div class="field">
+          <label for="new-user-username">Nombre de usuario</label>
+          <input type="text" id="new-user-username" name="username" autocomplete="off" required />
+        </div>
+
+        <div class="field">
+          <label for="new-user-email">Correo electrónico</label>
+          <input type="email" id="new-user-email" name="email" autocomplete="off" required />
+        </div>
+
+        <div class="field">
+          <label for="new-user-password">Contraseña temporal</label>
+          <input type="password" id="new-user-password" name="password" autocomplete="new-password" required minlength="8" />
+        </div>
+
+        <div class="field">
+          <label for="new-user-role">Rol asignado</label>
+          <select id="new-user-role" name="roleName" required>
+            <option value="" disabled selected>Cargando roles...</option>
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="new-user-cancel" style="width:auto; padding:10px 18px;">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary" id="new-user-submit" style="width:auto; padding:10px 18px;">
+            Registrar colaborador
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/session.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

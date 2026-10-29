@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SICEN - Iniciar sesión</title>
+  <link rel="icon" type="image/png" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/favicon-180.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="login-page">
+    <div class="login-brand">
+      <img src="img/logo-mep-color.png" alt="Ministerio de Educación Pública - Gobierno de Costa Rica" />
+    </div>
+    <form class="login-card" id="login-form" novalidate>
+      <h1>SICEN</h1>
+      <p class="login-subtitle">Sistema de Gestión de Censos Escolares</p>
+
+      <p class="form-message" id="form-message" role="alert" aria-live="polite"></p>
+
+      <div class="field">
+        <label for="email">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          autocomplete="username"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="current-password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="submit-btn">Iniciar sesión</button>
+
+      <div class="login-links">
+        <a href="#" id="forgot-link">¿Olvidó su contraseña?</a>
+      </div>
+
+      <details class="demo-hint">
+        <summary>Cuentas de demostración (Avance 1)</summary>
+        <ul class="demo-hint-list">
+          <li>
+            <span class="demo-hint-role">Jefatura DAE</span>
+            <span class="demo-hint-email">jefatura.dae@sicen.mep.go.cr</span>
+          </li>
+          <li>
+            <span class="demo-hint-role">Técnico DAE</span>
+            <span class="demo-hint-email">tecnico.dae@sicen.mep.go.cr</span>
+          </li>
+          <li>
+            <span class="demo-hint-role">Director de Centro</span>
+            <span class="demo-hint-email">director.centro@sicen.mep.go.cr</span>
+          </li>
+          <li>
+            <span class="demo-hint-role">Supervisor de Centro</span>
+            <span class="demo-hint-email">supervisor.centro@sicen.mep.go.cr</span>
+          </li>
+        </ul>
+        <p class="demo-hint-password">
+          Contraseña para las cuatro cuentas: <code>Demo#2026</code><br />
+          (creadas con <code>npm run seed:demo</code> en el backend)
+        </p>
+      </details>
+    </form>
+  </main>
+
+  <script src="js/session.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

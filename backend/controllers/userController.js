@@ -97,4 +97,47 @@ async function createUser(req, res, next) {
   }
 }
 
-module.exports = { getProfile, listUsers, createUser };
+/**
+ * PATCH /api/users/:id/status
+ * Activa o desactiva la cuenta de un colaborador (RF-019, "gestionar usuarios").
+ * Solo accesible para la Jefatura DAE. Un usuario no puede desactivarse a sí
+ * mismo para evitar perder acceso administrativo por error.
+ */
+async function updateUserStatus(req, res, next) {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    if (!['active', 'inactive'].includes(status)) {
+      return res.status(400).json({ message: 'El estado debe ser "active" o "inactive"' });
+    }
+
+    if (id === req.user.id) {
+      return res.status(400).json({ message: 'No puede cambiar el estado de su propia cuenta' });
+    }
+
+    const user = await User.findById(id).populate('roleId');
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    user.status = status;
+    await user.save();
+
+    return res.json({
+      message: 'Estado actualizado correctamente',
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        role: user.roleId.name,
+        status: user.status,
+        createdAt: user.createdAt,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
+module.exports = { getProfile, listUsers, createUser, updateUserStatus };

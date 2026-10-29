@@ -21,6 +21,7 @@ async function getProfile(req, res, next) {
       username: user.username,
       email: user.email,
       role: user.roleId.name,
+      permissions: user.roleId.permissions,
       status: user.status,
       createdAt: user.createdAt,
     });

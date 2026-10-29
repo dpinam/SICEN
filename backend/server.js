@@ -6,6 +6,7 @@ const connectDB = require('./config/db');
 
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const roleRoutes = require('./routes/roleRoutes');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 // Rutas de la API
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/roles', roleRoutes);
 
 // Endpoint simple de verificación (healthcheck)
 app.get('/api/health', (req, res) => {

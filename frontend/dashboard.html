@@ -22,9 +22,43 @@
     <div class="card">
       <h2>Bienvenido(a) a SICEN</h2>
       <p class="text-aux">
-        Sistema de Gestión de Censos Escolares del Ministerio de Educación Pública.
+        Sistema de Gestión de Censos Escolares del Ministerio de Educación Pública — Dirección de Administración Educativa (DAE).
       </p>
       <p id="dashboard-status">Verificando sesión...</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>Módulos del sistema</h2>
+        <span class="text-aux">Según su rol: <strong id="module-role-label">—</strong></span>
+      </div>
+      <p class="text-aux" style="margin-top:4px;">
+        El Avance 1 habilita el módulo de Autenticación y Gestión de Usuarios. Los módulos restantes
+        corresponden a los siguientes sprints del backlog (ver MATRIZ_TRAZABILIDAD_SICEN.md).
+      </p>
+      <div class="module-grid" id="module-grid"></div>
+    </div>
+
+    <div class="card" id="users-card" style="display:none;">
+      <div class="card-header">
+        <h2>Gestión de usuarios</h2>
+        <span class="text-aux" id="users-count"></span>
+      </div>
+      <p class="text-aux">Solo visible para el rol Jefatura DAE (RF-002, RF-019).</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Alta</th>
+          </tr>
+        </thead>
+        <tbody id="users-table-body">
+          <tr><td colspan="5" class="text-aux">Cargando usuarios...</td></tr>
+        </tbody>
+      </table>
     </div>
   </main>
 

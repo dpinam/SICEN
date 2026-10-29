@@ -373,6 +373,67 @@ a {
   gap: 12px;
 }
 
+/* ---------- Chip de perfil (abre el panel de usuario propio) ---------- */
+
+.profile-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 4px 16px 4px 4px;
+  cursor: pointer;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.profile-chip:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: var(--color-gold);
+  transform: translateY(-1px);
+}
+
+.profile-chip:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.profile-avatar {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.2px;
+}
+
+.profile-avatar-lg {
+  width: 52px;
+  height: 52px;
+  font-size: 18px;
+}
+
+.profile-chip-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  line-height: 1.2;
+}
+
+.profile-chip-text #user-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
 .badge {
   display: inline-block;
   padding: 3px 11px;
@@ -423,6 +484,20 @@ a {
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.section-kicker {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: rgba(2, 26, 83, 0.07);
+  border: 1px solid rgba(2, 26, 83, 0.12);
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
 }
 
 .btn-secondary {
@@ -492,44 +567,68 @@ a {
   background: var(--color-white);
   border: 1px solid #e8ecf3;
   border-radius: var(--radius-md);
-  padding: 17px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 8px;
   transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
-}
-
-.module-card.is-available {
-  border-top: 3px solid var(--color-success);
 }
 
 .module-card.is-available:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-3px);
   cursor: pointer;
-  border-color: #d7e4da;
+  border-color: var(--color-gold);
 }
 
-.module-card.is-soon {
-  border-top: 3px solid var(--color-gray);
-  opacity: 0.78;
+.module-card.is-soon,
+.module-card.is-soon .module-thumb {
+  opacity: 0.82;
 }
 
-.module-icon {
-  width: 38px;
-  height: 38px;
+/* Bloque "miniatura" a todo el ancho de la tarjeta, al estilo de las
+   tarjetas de recursos institucionales (imagen/ícono destacado arriba). */
+.module-thumb {
+  height: 84px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 19px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(207, 172, 101, 0.22), rgba(2, 26, 83, 0.06));
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 60%, var(--color-primary-light) 100%);
+  position: relative;
+}
+
+.module-card.is-soon .module-thumb,
+.module-card.is-locked .module-thumb {
+  background: linear-gradient(135deg, #8a93a6 0%, #aab0bb 100%);
+}
+
+.module-thumb::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--color-gold);
+}
+
+.module-icon {
+  font-size: 28px;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25));
+}
+
+.module-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
 }
 
 .module-title {
   font-size: 14px;
   font-weight: 700;
   color: var(--color-primary);
+  font-family: var(--font-brand);
 }
 
 .module-desc {
@@ -540,24 +639,37 @@ a {
 }
 
 .pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   align-self: flex-start;
-  padding: 3px 10px;
+  padding: 5px 13px;
   border-radius: 999px;
   font-size: 10.5px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.4px;
 }
 
+/* CTA dorada, al estilo "Ver recurso ›" de los portales institucionales
+   del MEP: indica que el módulo está disponible y se puede abrir. */
 .pill-available {
-  background: var(--color-success-bg);
-  color: #166534;
+  background: var(--color-gold);
+  color: var(--color-primary);
+}
+
+.module-card.is-available:hover .pill-available {
+  background: var(--color-gold-light);
 }
 
 .pill-soon {
   background: #eef1f6;
   color: var(--color-text-muted);
+}
+
+.pill-locked {
+  background: rgba(220, 38, 38, 0.08);
+  color: #a52222;
 }
 
 /* ---------- Tabla de gestión de usuarios ---------- */
@@ -601,6 +713,10 @@ a {
 
 .data-table tbody tr:hover {
   background: rgba(207, 172, 101, 0.1);
+}
+
+.data-table tbody tr[data-id] {
+  cursor: pointer;
 }
 
 .role-tag {
@@ -706,6 +822,51 @@ a {
 
 .form-message.form-message-success {
   color: var(--color-success);
+}
+
+/* ---------- Panel de detalle de usuario (propio o de un colaborador) ---------- */
+
+.detail-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 14px 0 18px;
+}
+
+.detail-name {
+  margin: 0 0 5px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-family: var(--font-brand);
+}
+
+.detail-list {
+  margin: 0;
+  padding: 0;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-top: 1px solid #eef1f6;
+}
+
+.detail-row dt {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.detail-row dd {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: right;
 }
 
 /* ---------- Acciones de la tabla de usuarios ---------- */

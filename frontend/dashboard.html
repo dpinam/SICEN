@@ -56,9 +56,14 @@
     <div class="card" id="users-card" style="display:none;">
       <div class="card-header">
         <h2>Gestión de usuarios</h2>
-        <span class="text-aux" id="users-count"></span>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <span class="text-aux" id="users-count"></span>
+          <button type="button" class="btn btn-primary" id="new-user-btn" style="width:auto; padding:8px 16px;">
+            + Nuevo colaborador
+          </button>
+        </div>
       </div>
-      <p class="text-aux">Solo visible para el rol Jefatura DAE (RF-002, RF-019).</p>
+      <p class="text-aux">Creación de colaboradores y asignación de roles (RF-002, RF-019).</p>
       <table class="data-table">
         <thead>
           <tr>
@@ -67,14 +72,58 @@
             <th>Rol</th>
             <th>Estado</th>
             <th>Alta</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody id="users-table-body">
-          <tr><td colspan="5" class="text-aux">Cargando usuarios...</td></tr>
+          <tr><td colspan="6" class="text-aux">Cargando usuarios...</td></tr>
         </tbody>
       </table>
     </div>
   </main>
+
+  <div class="modal-overlay" id="new-user-overlay" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>Nuevo colaborador</h2>
+        <button type="button" class="modal-close" id="new-user-close" aria-label="Cerrar">&times;</button>
+      </div>
+      <form id="new-user-form" novalidate>
+        <p class="form-message" id="new-user-message" role="alert" aria-live="polite"></p>
+
+        <div class="field">
+          <label for="new-user-username">Nombre de usuario</label>
+          <input type="text" id="new-user-username" name="username" autocomplete="off" required />
+        </div>
+
+        <div class="field">
+          <label for="new-user-email">Correo electrónico</label>
+          <input type="email" id="new-user-email" name="email" autocomplete="off" required />
+        </div>
+
+        <div class="field">
+          <label for="new-user-password">Contraseña temporal</label>
+          <input type="password" id="new-user-password" name="password" autocomplete="new-password" required minlength="8" />
+        </div>
+
+        <div class="field">
+          <label for="new-user-role">Rol asignado</label>
+          <select id="new-user-role" name="roleName" required>
+            <option value="" disabled selected>Cargando roles...</option>
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="new-user-cancel" style="width:auto; padding:10px 18px;">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary" id="new-user-submit" style="width:auto; padding:10px 18px;">
+            Registrar colaborador
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="js/session.js"></script>
   <script src="js/dashboard.js"></script>

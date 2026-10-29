@@ -25,7 +25,9 @@ SICEN/
 │   ├── controllers/                   # Lógica de autenticación y gestión de usuarios
 │   ├── routes/                        # Rutas de la API (/api/auth, /api/users)
 │   ├── middlewares/                   # Autenticación JWT y autorización por roles (RBAC)
+│   ├── seed/roleDefinitions.js        # Definición única de los 4 roles base
 │   ├── seed/seedRoles.js              # Semilla de los 4 roles base del sistema
+│   ├── seed/seedUsers.js              # Semilla de usuarios de demostración (uno por rol)
 │   └── .env.example                   # Variables de entorno requeridas
 ├── frontend/                          # Interfaz web (HTML + CSS + JavaScript)
 │   ├── index.html                     # Pantalla de inicio de sesión (WF-01)
@@ -67,9 +69,11 @@ Esta fase del proyecto implementa el módulo de **autenticación, autorización 
    # completar MONGODB_URI con la cadena de conexión de MongoDB Atlas
    # y JWT_SECRET con un valor propio
    ```
-3. Cargar los roles base del sistema (Jefatura DAE, Técnico DAE, Director de Centro Educativo, Supervisor de Centro Educativo):
+3. Cargar los datos base (roles del sistema y, opcionalmente, usuarios de demostración):
    ```bash
-   npm run seed:roles
+   npm run seed:roles   # solo los 4 roles base
+   npm run seed:users   # 4 usuarios de demostración, uno por rol (crea los roles si faltan)
+   npm run seed:demo    # equivalente a ejecutar ambos en un solo paso
    ```
 4. Iniciar el servidor:
    ```bash
@@ -83,7 +87,7 @@ Esta fase del proyecto implementa el módulo de **autenticación, autorización 
 |--------|------|--------------|--------|
 | POST | `/api/auth/register` | Registra un usuario nuevo | Público |
 | POST | `/api/auth/login` | Inicia sesión y devuelve un token JWT | Público |
-| GET | `/api/users/me` | Perfil del usuario autenticado | Autenticado |
+| GET | `/api/users/me` | Perfil del usuario autenticado (incluye rol y permisos) | Autenticado |
 | GET | `/api/users` | Lista todos los usuarios | Jefatura DAE |
 | POST | `/api/users` | Registra un colaborador y le asigna un rol | Jefatura DAE |
 
@@ -97,6 +101,19 @@ npx serve .
 ```
 
 Por defecto, el frontend consume la API en `http://localhost:4000/api` (ver `js/session.js`, variable `SICEN_API_BASE_URL`).
+
+El panel principal (`dashboard.html`) arma dinámicamente el grid de módulos del sistema según los permisos del rol autenticado, y solo la Jefatura DAE ve la tabla de gestión de usuarios (consumiendo `GET /api/users`). Los demás roles ven los mismos módulos marcados como "Sin acceso" o "Próximamente", según corresponda.
+
+### Cuentas de demostración
+
+Tras ejecutar `npm run seed:demo`, quedan disponibles cuatro cuentas (una por rol) para alternar perfiles durante la exposición del avance. Todas comparten la misma contraseña, configurable con la variable de entorno `SEED_DEMO_PASSWORD` (por defecto `Demo#2026`). También se listan, de forma colapsada, en la propia pantalla de inicio de sesión.
+
+| Rol | Correo | Contraseña |
+|-----|--------|------------|
+| Jefatura DAE | `jefatura.dae@sicen.mep.go.cr` | `Demo#2026` |
+| Técnico DAE | `tecnico.dae@sicen.mep.go.cr` | `Demo#2026` |
+| Director de Centro Educativo | `director.centro@sicen.mep.go.cr` | `Demo#2026` |
+| Supervisor de Centro Educativo | `supervisor.centro@sicen.mep.go.cr` | `Demo#2026` |
 
 ## Licencia
 

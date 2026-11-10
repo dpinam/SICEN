@@ -5,19 +5,19 @@
 **Estudiante:** Dylan Piña Moya  
 **Correo Institucional:** dpinam@ucenfotec.ac.cr  
 **Institución:** Universidad CENFO Técnica  
-**Período de Proyecto:** Septiembre 2026  
-**Última Actualización:** 17 de Septiembre de 2026  
-**Fecha de Entrega:** 17 de Septiembre de 2026  
-**Versión:** 3.1  
-**Estado:** Completo y Listo para Entrega
+**Período de Proyecto:** Septiembre - Noviembre 2026  
+**Última Actualización:** 10 de Noviembre de 2026 (Bitácora 3)  
+**Fecha de Entrega:** 10 de Noviembre de 2026  
+**Versión:** 4.0  
+**Estado:** Bitácora 3 registrada
 
 ---
 
 ## REFERENCIAS Y ENLACES DEL PROYECTO
 
 ### Proyecto Jira
-- **URL:** https://ucenfotec-tarea1.atlassian.net/
-- **Project Key:** WCDXKDXO
+- **URL:** https://ucenfotec-tarea1.atlassian.net/jira/software/projects/SIC/boards/100/backlog
+- **Project Key:** SIC (espacio SICEN)
 - **Estado:** Activo y Configurado
 - **Acceso:** Workspace CENFO Técnica
 
@@ -703,6 +703,78 @@ El proyecto SICEN ha completado exitosamente todas las fases de análisis, espec
 
 ---
 
+## BITÁCORA 3 — DISEÑO TÉCNICO, AVANCE 1 Y TRAZABILIDAD DE ENDPOINTS (28/10/2026 - 10/11/2026)
+
+### Cronograma de entregas del curso
+
+| Entrega | Semana / fecha | Contenido principal | Estado |
+|---------|----------------|---------------------|--------|
+| Bitácora 1 | 17/09/2026 | Requisitos (ERS), épicas, historias de usuario, matriz de trazabilidad, Jira y repositorio | Entregada a tiempo |
+| Bitácora 2 | 29/09/2026 | Especificación de diseño v1.0: casos de uso, wireframes WF-01 a WF-09, guía de estilos, navegación | Entregada a tiempo |
+| Avance 1 | Semana 9 - 29/10/2026 | Implementación Sprint 1: autenticación JWT, RBAC y gestión de usuarios (rama `avance-1`) | Entregada a tiempo |
+| Exposición I | 29/10/2026 | Demostración en vivo del Avance 1 por rol | Realizada |
+| Bitácora 3 | Semana 11 - 10/11/2026 | Especificación de diseño v2.0 (arquitectura, BD, carpetas, API, tecnologías), matriz RF → endpoint, Jira | Entregada a tiempo |
+
+### Actividades realizadas
+
+| # | Fecha | Actividad | Jira | Historia / RF | Resultado |
+|---|-------|-----------|------|---------------|-----------|
+| 1 | 28/10/2026 | Conexión a MongoDB Atlas (`config/db.js`), modelos `User` y `Role` (Mongoose) | SIC-10, SIC-27 | RF-001, RF-002 | Completado |
+| 2 | 28/10/2026 | Middlewares `requireAuth` (JWT) y `requireRole` (RBAC); utilidades de validación | SIC-10, SIC-27 | RF-001, RF-002 | Completado |
+| 3 | 28/10/2026 | Endpoints `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/users/me`, `GET /api/users`, `POST /api/users` | SIC-10, SIC-28 | RF-001, RF-019 | Completado |
+| 4 | 28/10/2026 | Pantalla de inicio de sesión (WF-01) conectada a la API, sesión con token en localStorage, panel principal | SIC-10 | RF-001 | Completado |
+| 5 | 28-29/10/2026 | Scripts de semilla: 4 roles base y 4 usuarios de demostración (uno por rol) | SIC-27 | RF-002 | Completado |
+| 6 | 29/10/2026 | Rediseño visual con la identidad gráfica oficial del MEP 2026-2030 (logos, paleta, tipografía, íconos) | SIC-36 | — | Completado |
+| 7 | 29/10/2026 | Gestión de usuarios en la interfaz: alta de colaboradores con rol, activar/desactivar cuentas; endpoints `GET /api/roles` y `PATCH /api/users/:id/status` | SIC-28 | RF-019 | Completado |
+| 8 | 29/10/2026 | Panel principal: módulos por rol, gestión de usuarios bajo demanda, panel de detalle de usuario y de perfil propio | SIC-27, SIC-28 | RF-002, RF-019 | Completado |
+| 9 | 29/10/2026 | Pruebas automatizadas de interfaz (creación, duplicados, cambio de estado, acceso por rol) | SIC-28 | RF-019 | Completado |
+| 10 | 29/10/2026 | Entrega del Avance 1 y Exposición I | — | — | Completado |
+| 11 | 10/11/2026 | Arquitectura del sistema por capas, comunicación y patrones (Especificación v2.0, sección 5) | SIC-37 | — | Completado |
+| 12 | 10/11/2026 | Diseño de la base de datos: diagrama de 11 colecciones, diccionario de datos y cardinalidad (sección 6) | SIC-38 | Todos | Completado |
+| 13 | 10/11/2026 | Estructura de carpetas del frontend y backend (sección 7) | SIC-39 | — | Completado |
+| 14 | 10/11/2026 | API REST: 7 endpoints implementados y 30 diseñados con su requerimiento (sección 8) | SIC-40 | Todos | Completado |
+| 15 | 10/11/2026 | Tecnologías utilizadas con versión y propósito (sección 9) | SIC-41 | — | Completado |
+| 16 | 10/11/2026 | Matriz de trazabilidad v2.0: relación RF → endpoint y estado real por requisito | SIC-42 | Todos | Completado |
+| 17 | 10/11/2026 | Corrección de seguridad en `POST /api/auth/register` (escalamiento de privilegios) | SIC-43 | RF-001 | Completado |
+| 18 | 10/11/2026 | Actualización de Jira: historias del Sprint 1 marcadas como Listo, creación del Sprint 3 con las actividades de la fase | — | — | Completado |
+
+### Inconvenientes y soluciones
+
+**Inconveniente 1: la gestión de usuarios no estaba completa en la interfaz.**
+Descripción: el backend ya permitía crear usuarios (`POST /api/users`), pero el panel solo mostraba una tabla de lectura; la historia US-019 del Sprint 1 ("crear y gestionar usuarios") no se cumplía desde la interfaz y no había forma de listar roles ni desactivar cuentas.
+Solución: se agregaron `GET /api/roles` y `PATCH /api/users/:id/status`, el formulario modal "Nuevo colaborador" y las acciones Activar/Desactivar, con validación de duplicados (409) y protección para que nadie desactive su propia cuenta.
+
+**Inconveniente 2: los cambios del backend no se reflejaban en el servidor en ejecución.**
+Descripción: tras sincronizar las rutas nuevas, la API seguía respondiendo con la versión anterior porque `npm start` ejecuta `node server.js` sin recarga automática.
+Solución: se reinicia el servidor tras cada actualización (script `restart_backend.bat`, que libera el puerto 4000 y vuelve a ejecutar `npm start`); durante el desarrollo se recomienda `npm run dev` (nodemon).
+
+**Inconveniente 3: escalamiento de privilegios en el registro público.**
+Descripción: al documentar la API se detectó que `POST /api/auth/register` (público) aceptaba el campo `roleName`, por lo que cualquier persona podía registrarse como "Jefatura DAE".
+Solución: el registro público ignora `roleName` y asigna siempre "Director de Centro Educativo"; solo la Jefatura DAE asigna otros roles desde `POST /api/users`. Se verificó con una prueba que envía `roleName: "Jefatura DAE"` y obtiene el rol de menor privilegio.
+
+**Inconveniente 4: la documentación no reflejaba el estado real del sistema.**
+Descripción: la especificación de diseño v1.0 no incluía arquitectura detallada, base de datos ni API, y la matriz marcaba los 20 requisitos como "Completado" cuando solo RF-001, RF-002 y RF-019 estaban implementados; además faltaba una colección para los centros educativos, referenciada por envíos y asignaciones.
+Solución: se publicó la especificación v2.0 y la matriz v2.0 con estado "Implementado" / "Diseñado" por requisito, componentes reales y la nueva colección `centers`.
+
+**Inconveniente 5: Jira no reflejaba el avance real del Sprint 1.**
+Descripción: las historias implementadas en el Avance 1 seguían "Por hacer"; además, la numeración de historias en Jira difiere de la matriz (en Jira, US-018 es "Crear nuevo usuario" y US-019 "Asignar técnico"), por lo que el Sprint 1 incluía SIC-29 "Asignar técnico a centro educativo" (RF-020, planificada para el Sprint 4) y dejaba fuera SIC-28 "Crear nuevo usuario" (RF-019), que sí se implementó.
+Solución: se movió SIC-28 al Sprint 1 y SIC-29 al backlog (con comentario de replanificación), se marcaron SIC-10, SIC-27 y SIC-28 como Listo con un comentario de lo implementado, y esta bitácora referencia la clave de Jira (SIC-xx) junto a cada actividad para evitar ambigüedad.
+
+**Inconveniente 6: sesión de Jira expirada al actualizar el tablero.**
+Descripción: la sesión de Atlassian había expirado y no se podía registrar el avance en Jira.
+Solución: se volvió a iniciar sesión con la cuenta institucional y se registraron las actividades de la fase en el Sprint 3 (SIC-36 a SIC-43).
+
+### Evidencia
+
+- **Repositorio GitHub:** https://github.com/dpinam/SICEN (ramas `main` y `avance-1`)
+- **Especificación de diseño v2.0:** `ESPECIFICACION_DISENO_SICEN.md` (secciones 5 a 9) y diagramas `diagramas/arquitectura_capas.png`, `diagramas/modelo_colecciones.png`
+- **Matriz de trazabilidad v2.0:** `MATRIZ_TRAZABILIDAD_SICEN.md`, sección 2.1 (requisito → endpoint)
+- **Historial de commits:** https://github.com/dpinam/SICEN/commits/avance-1
+- **Proyecto Jira (backlog SICEN):** https://ucenfotec-tarea1.atlassian.net/jira/software/projects/SIC/boards/100/backlog
+- **Historias completadas en Jira:** Sprint 1 (SIC-10, SIC-27, SIC-28) y Sprint 3 (SIC-36 a SIC-43), todas en estado Listo
+
+---
+
 ## FIRMAS Y APROBACIONES
 
 **Estudiante:**  
@@ -714,7 +786,7 @@ Fecha de Entrega: 17 de Septiembre de 2026
 ---
 
 **Documento:** BITACORA_SICEN.md  
-**Versión:** 3.0  
-**Última Actualización:** 17 de Septiembre de 2026  
+**Versión:** 4.0  
+**Última Actualización:** 10 de Noviembre de 2026  
 **Estado:** Completo y Listo para Entrega  
 **Responsable:** Dylan Piña Moya

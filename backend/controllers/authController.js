@@ -9,14 +9,19 @@ const SALT_ROUNDS = 10;
 
 /**
  * POST /api/auth/register
- * Registra un nuevo usuario. Si no se indica un rol, se asigna el rol
- * "Director de Centro Educativo" por defecto (perfil de menor privilegio
- * operativo). La creación de usuarios con roles administrativos se realiza
- * desde el módulo de gestión de usuarios (ver userController.js, RF-019).
+ * Registro público de usuarios. Siempre asigna el rol
+ * "Director de Centro Educativo" (perfil de menor privilegio operativo):
+ * por seguridad se ignora cualquier "roleName" enviado en el cuerpo, para
+ * evitar que alguien se auto-registre con un rol administrativo
+ * (escalamiento de privilegios). La asignación de otros roles solo la
+ * puede hacer la Jefatura DAE desde Gestión de usuarios
+ * (POST /api/users, ver userController.js, RF-002 / RF-019).
  */
+const DEFAULT_ROLE = 'Director de Centro Educativo';
+
 async function register(req, res, next) {
   try {
-    const { username, email, password, roleName } = req.body;
+    const { username, email, password } = req.body;
 
     if (!isNonEmptyString(username, 3)) {
       return res.status(400).json({ message: 'El nombre de usuario debe tener al menos 3 caracteres' });
@@ -33,7 +38,7 @@ async function register(req, res, next) {
       return res.status(409).json({ message: 'Ya existe un usuario con ese correo o nombre de usuario' });
     }
 
-    const role = await Role.findOne({ name: roleName || 'Director de Centro Educativo' });
+    const role = await Role.findOne({ name: DEFAULT_ROLE });
     if (!role) {
       return res.status(400).json({
         message: 'El rol indicado no existe. Ejecute el script de semilla (npm run seed:roles).',

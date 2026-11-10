@@ -4,8 +4,8 @@
 **Autor:** Dylan Piña Moya  
 **Correo:** dpinam@ucenfotec.ac.cr  
 **Periodo:** 2026-C3  
-**Fecha:** Septiembre 2026  
-**Versión:** 1.0
+**Fecha:** Noviembre 2026  
+**Versión:** 2.0 (actualizada en Bitácora 3)
 
 ---
 
@@ -19,28 +19,72 @@ La matriz de trazabilidad establece la relación entre los requisitos funcionale
 
 | ID Req. | Requisito Funcional | Descripción Breve | Usuario | Epic Jira | Historia Usuario | Task de Dev | Task de Testing | Componente Frontend | Componente Backend | Base de Datos | Wireframe / Prototipo | Estado |
 |---------|-------------------|------------------|---------|-----------|-----------------|-------------|-----------------|--------------------|--------------------|----------------|------------------------|--------|
-| RF-001 | Autenticación de Usuarios | Sistema de login con credenciales | Todos | SEC-001 | US-001 | TASK-001 | TEST-001 | login.html / login.js | auth.controller.js | users, sessions | WF-01 Login | Completado |
-| RF-002 | Gestión de Roles y Permisos | RBAC para control de acceso | Administrador | SEC-001 | US-002 | TASK-002 | TEST-002 | usuarios.html / roles.js | rbac.service.js | roles, permissions | WF-06 Gestión de Usuarios | Completado |
-| RF-003 | Crear Formulario Censal | Formulario dinámico configurable | Administrador | FORM-001 | US-003 | TASK-003 | TEST-003 | formulario-builder.html / form-builder.js | form.controller.js | forms, fields | WF-03 Constructor de Formularios | Completado |
-| RF-004 | Editar Formulario Censal | Modificación de campos y estructura | Administrador | FORM-001 | US-004 | TASK-004 | TEST-004 | formulario-builder.html / form-builder.js | form.controller.js | forms | WF-03 Constructor de Formularios | Completado |
-| RF-005 | Eliminar Formulario Censal | Borrado lógico de formularios | Administrador | FORM-001 | US-005 | TASK-005 | TEST-005 | formularios.html / form-list.js | form.controller.js | forms | WF-03 Constructor de Formularios | Completado |
-| RF-006 | Configurar Censo | Definir períodos y parámetros | Administrador | CONFIG-001 | US-006 | TASK-006 | TEST-006 | censo-config.html / census.js | census.controller.js | censuses | WF-04 Configuración de Censo | Completado |
-| RF-007 | Abrir Censo | Habilitar censo para participantes | Administrador | CONFIG-001 | US-007 | TASK-007 | TEST-007 | censo-config.html / census.js | census.controller.js | censuses | WF-04 Configuración de Censo | Completado |
-| RF-008 | Pausar Censo | Suspender temporalmente censo | Administrador | CONFIG-001 | US-008 | TASK-008 | TEST-008 | censo-config.html / census.js | census.controller.js | censuses | WF-04 Configuración de Censo | Completado |
-| RF-009 | Cerrar Censo | Finalizar período de recolección | Administrador | CONFIG-001 | US-009 | TASK-009 | TEST-009 | censo-config.html / census.js | census.controller.js | censuses | WF-04 Configuración de Censo | Completado |
-| RF-010 | Llenar Formulario Censal | Completar datos en formulario | Director Centro | SUBMIT-001 | US-010 | TASK-010 | TEST-010 | formulario-censal.html / form-submit.js | form.controller.js | responses | WF-02 Formulario Censal | Completado |
-| RF-011 | Enviar Formulario | Remitir respuestas completas | Director Centro | SUBMIT-001 | US-011 | TASK-011 | TEST-011 | formulario-censal.html / form-submit.js | submission.controller.js | submissions | WF-02 Formulario Censal | Completado |
-| RF-012 | Validar Datos Censal | Verificación de integridad datos | Técnico DAE | VALIDATE-001 | US-012 | TASK-012 | TEST-012 | validacion.html / validation.js | validation.service.js | validations | WF-05 Panel de Validación | Completado |
-| RF-013 | Aceptar Formulario | Confirmar validación completada | Técnico DAE | VALIDATE-001 | US-013 | TASK-013 | TEST-013 | validacion.html / validation.js | submission.controller.js | submissions | WF-05 Panel de Validación | Completado |
-| RF-014 | Devolver Formulario | Rechazar con comentarios | Técnico DAE | VALIDATE-001 | US-014 | TASK-014 | TEST-014 | validacion.html / validation.js | submission.controller.js | submissions | WF-05 Panel de Validación | Completado |
-| RF-015 | Generar Reportes | Reportes consolidados y filtrados | Administrador | REPORT-001 | US-015 | TASK-015 | TEST-015 | reportes.html / reports.js | report.service.js | submissions, responses | WF-07 Reportes | Completado |
-| RF-016 | Descargar Reportes | Exportar a PDF/Excel | Administrador | REPORT-001 | US-016 | TASK-016 | TEST-016 | reportes.html / reports.js | export.service.js | submissions | WF-07 Reportes | Completado |
-| RF-017 | Sistema de Notificaciones | Alertas y comunicados | Todos | NOTIF-001 | US-017 | TASK-017 | TEST-017 | notificaciones.html / notifications.js | notification.service.js | notifications | WF-08 Notificaciones | Completado |
-| RF-018 | Historial Auditable | Registro de todas las operaciones | Administrador | AUDIT-001 | US-018 | TASK-018 | TEST-018 | auditoria.html / audit.js | audit.service.js | audit_logs | WF-09 Historial de Auditoría | Completado |
-| RF-019 | Gestión de Usuarios | ABM de cuentas de sistema | Administrador | USER-001 | US-019 | TASK-019 | TEST-019 | usuarios.html / users.js | user.controller.js | users | WF-06 Gestión de Usuarios | Completado |
-| RF-020 | Asignación de Técnicos | Distribuir técnicos a centros | Administrador | USER-001 | US-020 | TASK-020 | TEST-020 | usuarios.html / assignments.js | assignment.controller.js | assignments | WF-06 Gestión de Usuarios | Completado |
+| RF-001 | Autenticación de Usuarios | Sistema de login con credenciales | Todos | SEC-001 | US-001 | TASK-001 | TEST-001 | index.html / js/auth.js, js/session.js | authController.js, authMiddleware.js | users | WF-01 Login | Implementado (Avance 1) |
+| RF-002 | Gestión de Roles y Permisos | RBAC para control de acceso | Administrador | SEC-001 | US-002 | TASK-002 | TEST-002 | dashboard.html / js/dashboard.js | roleMiddleware.js, roleController.js | roles | WF-06 Gestión de Usuarios | Implementado (Avance 1) |
+| RF-003 | Crear Formulario Censal | Formulario dinámico configurable | Administrador | FORM-001 | US-003 | TASK-003 | TEST-003 | formulario-builder.html / form-builder.js | form.controller.js | forms, fields | WF-03 Constructor de Formularios | Diseñado (Sprint 2-4) |
+| RF-004 | Editar Formulario Censal | Modificación de campos y estructura | Administrador | FORM-001 | US-004 | TASK-004 | TEST-004 | formulario-builder.html / form-builder.js | form.controller.js | forms | WF-03 Constructor de Formularios | Diseñado (Sprint 2-4) |
+| RF-005 | Eliminar Formulario Censal | Borrado lógico de formularios | Administrador | FORM-001 | US-005 | TASK-005 | TEST-005 | formularios.html / form-list.js | form.controller.js | forms | WF-03 Constructor de Formularios | Diseñado (Sprint 2-4) |
+| RF-006 | Configurar Censo | Definir períodos y parámetros | Administrador | CONFIG-001 | US-006 | TASK-006 | TEST-006 | censo-config.html / census.js | census.controller.js | censuses | WF-04 Configuración de Censo | Diseñado (Sprint 2-4) |
+| RF-007 | Abrir Censo | Habilitar censo para participantes | Administrador | CONFIG-001 | US-007 | TASK-007 | TEST-007 | censo-config.html / census.js | census.controller.js | censuses | WF-04 Configuración de Censo | Diseñado (Sprint 2-4) |
+| RF-008 | Pausar Censo | Suspender temporalmente censo | Administrador | CONFIG-001 | US-008 | TASK-008 | TEST-008 | censo-config.html / census.js | census.controller.js | censuses | WF-04 Configuración de Censo | Diseñado (Sprint 2-4) |
+| RF-009 | Cerrar Censo | Finalizar período de recolección | Administrador | CONFIG-001 | US-009 | TASK-009 | TEST-009 | censo-config.html / census.js | census.controller.js | censuses | WF-04 Configuración de Censo | Diseñado (Sprint 2-4) |
+| RF-010 | Llenar Formulario Censal | Completar datos en formulario | Director Centro | SUBMIT-001 | US-010 | TASK-010 | TEST-010 | formulario-censal.html / form-submit.js | form.controller.js | responses | WF-02 Formulario Censal | Diseñado (Sprint 2-4) |
+| RF-011 | Enviar Formulario | Remitir respuestas completas | Director Centro | SUBMIT-001 | US-011 | TASK-011 | TEST-011 | formulario-censal.html / form-submit.js | submission.controller.js | submissions | WF-02 Formulario Censal | Diseñado (Sprint 2-4) |
+| RF-012 | Validar Datos Censal | Verificación de integridad datos | Técnico DAE | VALIDATE-001 | US-012 | TASK-012 | TEST-012 | validacion.html / validation.js | validation.service.js | validations | WF-05 Panel de Validación | Diseñado (Sprint 2-4) |
+| RF-013 | Aceptar Formulario | Confirmar validación completada | Técnico DAE | VALIDATE-001 | US-013 | TASK-013 | TEST-013 | validacion.html / validation.js | submission.controller.js | submissions | WF-05 Panel de Validación | Diseñado (Sprint 2-4) |
+| RF-014 | Devolver Formulario | Rechazar con comentarios | Técnico DAE | VALIDATE-001 | US-014 | TASK-014 | TEST-014 | validacion.html / validation.js | submission.controller.js | submissions | WF-05 Panel de Validación | Diseñado (Sprint 2-4) |
+| RF-015 | Generar Reportes | Reportes consolidados y filtrados | Administrador | REPORT-001 | US-015 | TASK-015 | TEST-015 | reportes.html / reports.js | report.service.js | submissions, responses | WF-07 Reportes | Diseñado (Sprint 2-4) |
+| RF-016 | Descargar Reportes | Exportar a PDF/Excel | Administrador | REPORT-001 | US-016 | TASK-016 | TEST-016 | reportes.html / reports.js | export.service.js | submissions | WF-07 Reportes | Diseñado (Sprint 2-4) |
+| RF-017 | Sistema de Notificaciones | Alertas y comunicados | Todos | NOTIF-001 | US-017 | TASK-017 | TEST-017 | notificaciones.html / notifications.js | notification.service.js | notifications | WF-08 Notificaciones | Diseñado (Sprint 2-4) |
+| RF-018 | Historial Auditable | Registro de todas las operaciones | Administrador | AUDIT-001 | US-018 | TASK-018 | TEST-018 | auditoria.html / audit.js | audit.service.js | audit_logs | WF-09 Historial de Auditoría | Diseñado (Sprint 2-4) |
+| RF-019 | Gestión de Usuarios | ABM de cuentas de sistema | Administrador | USER-001 | US-019 | TASK-019 | TEST-019 | dashboard.html / js/dashboard.js | userController.js | users | WF-06 Gestión de Usuarios | Implementado (Avance 1) |
+| RF-020 | Asignación de Técnicos | Distribuir técnicos a centros | Administrador | USER-001 | US-020 | TASK-020 | TEST-020 | usuarios.html / assignments.js | assignment.controller.js | assignments | WF-06 Gestión de Usuarios | Diseñado (Sprint 2-4) |
 
 **Nota de wireframes:** el detalle visual de cada wireframe (WF-01 a WF-09) se documenta en `ESPECIFICACION_DISENO_SICEN.md`, sección "Interfaz de Usuario (UI/UX)".
+
+**Nota de estado (v2.0):** "Implementado" indica que el requisito tiene código funcional en la rama `avance-1`; "Diseñado" indica que su modelo de datos y endpoints están definidos en `ESPECIFICACION_DISENO_SICEN.md` (secciones 6 y 8) y se implementarán en los sprints siguientes.
+
+---
+
+## 2.1 TRAZABILIDAD REQUISITO → ENDPOINT (API REST)
+
+Relación de cada requisito funcional con su(s) endpoint(s). El detalle de cada endpoint (descripción y acceso por rol) está en `ESPECIFICACION_DISENO_SICEN.md`, sección 8.
+
+| ID Req. | Requisito Funcional | Método | Endpoint | Controlador | Colección | Historia | Estado |
+|---------|---------------------|--------|----------|-------------|-----------|----------|--------|
+| RF-001 | Autenticación de Usuarios | POST | `/api/auth/login` | authController.login | users, roles | US-001 | Implementado |
+| RF-001 | Autenticación de Usuarios | POST | `/api/auth/register` | authController.register | users, roles | US-001 | Implementado |
+| RF-001 | Autenticación de Usuarios | GET | `/api/users/me` | userController.getProfile | users, roles | US-001 | Implementado |
+| RF-002 | Gestión de Roles y Permisos | GET | `/api/roles` | roleController.listRoles | roles | US-002 | Implementado |
+| RF-002 | Gestión de Roles y Permisos | POST | `/api/users` (asignación de rol al crear) | userController.createUser | users, roles | US-002 | Implementado |
+| RF-002 | Gestión de Roles y Permisos | PATCH | `/api/users/:id/role` | userController.updateUserRole | users, roles | US-002 | Diseñado |
+| RF-003 | Crear Formulario Censal | POST | `/api/forms` | formController.createForm | forms | US-003 | Diseñado |
+| RF-003 | Crear Formulario Censal | GET | `/api/forms`, `/api/forms/:id` | formController.listForms / getForm | forms | US-003 | Diseñado |
+| RF-004 | Editar Formulario Censal | PUT | `/api/forms/:id` | formController.updateForm | forms | US-004 | Diseñado |
+| RF-005 | Eliminar Formulario Censal | DELETE | `/api/forms/:id` | formController.deleteForm | forms | US-005 | Diseñado |
+| RF-006 | Configurar Censo | POST / PUT / GET | `/api/censuses`, `/api/censuses/:id` | censusController.createCensus / updateCensus / listCensuses | censuses | US-006 | Diseñado |
+| RF-007 | Abrir Censo | PATCH | `/api/censuses/:id/open` | censusController.openCensus | censuses | US-007 | Diseñado |
+| RF-008 | Pausar Censo | PATCH | `/api/censuses/:id/pause` | censusController.pauseCensus | censuses | US-008 | Diseñado |
+| RF-009 | Cerrar Censo | PATCH | `/api/censuses/:id/close` | censusController.closeCensus | censuses | US-009 | Diseñado |
+| RF-010 | Llenar Formulario Censal | GET | `/api/censuses/:id/form` | censusController.getCensusForm | censuses, forms | US-010 | Diseñado |
+| RF-010 | Llenar Formulario Censal | PUT | `/api/submissions/:id/responses` | submissionController.saveResponses | submissions, responses | US-010 | Diseñado |
+| RF-011 | Enviar Formulario | POST | `/api/submissions/:id/submit` | submissionController.submitForm | submissions | US-011 | Diseñado |
+| RF-012 | Validar Datos Censales | GET | `/api/submissions?status=submitted` | submissionController.listSubmissions | submissions, assignments | US-012 | Diseñado |
+| RF-012 | Validar Datos Censales | POST | `/api/submissions/:id/validations` | validationController.validateSubmission | validations, responses | US-012 | Diseñado |
+| RF-013 | Aceptar Formulario | PATCH | `/api/submissions/:id/accept` | submissionController.acceptForm | submissions, validations | US-013 | Diseñado |
+| RF-014 | Devolver Formulario | PATCH | `/api/submissions/:id/return` | submissionController.returnForm | submissions, validations | US-014 | Diseñado |
+| RF-015 | Generar Reportes | GET | `/api/reports` | reportController.generateReport | submissions, responses, centers | US-015 | Diseñado |
+| RF-016 | Descargar Reportes | GET | `/api/reports/export` | reportController.exportReport | submissions, responses | US-016 | Diseñado |
+| RF-017 | Sistema de Notificaciones | GET / PATCH / POST | `/api/notifications`, `/api/notifications/:id/read` | notificationController.list / markAsRead / send | notifications | US-017 | Diseñado |
+| RF-018 | Historial Auditable | GET | `/api/audit-logs` | auditController.listAuditLogs | auditLogs | US-018 | Diseñado |
+| RF-019 | Gestión de Usuarios | GET | `/api/users` | userController.listUsers | users, roles | US-019 | Implementado |
+| RF-019 | Gestión de Usuarios | POST | `/api/users` | userController.createUser | users, roles | US-019 | Implementado |
+| RF-019 | Gestión de Usuarios | PATCH | `/api/users/:id/status` | userController.updateUserStatus | users | US-019 | Implementado |
+| RF-019 | Gestión de Usuarios | PUT | `/api/users/:id` | userController.updateUser | users | US-019 | Diseñado |
+| RF-020 | Asignación de Técnicos | GET | `/api/centers` | centerController.listCenters | centers | US-020 | Diseñado |
+| RF-020 | Asignación de Técnicos | POST / GET / DELETE | `/api/assignments`, `/api/assignments/:id` | assignmentController.assign / list / unassign | assignments, users, centers | US-020 | Diseñado |
+
+**Cobertura:** los 20 requisitos funcionales tienen al menos un endpoint asociado (100%). Endpoints implementados: 7 (más `GET /api/health` de soporte); endpoints diseñados: 30.
 
 ---
 
@@ -133,20 +177,21 @@ La matriz de trazabilidad establece la relación entre los requisitos funcionale
 
 ### 3.3 Requisitos por Colección de Base de Datos (MongoDB Atlas)
 
-| Colección | Campos Principales | Requisitos | Índices | Referencias (ObjectId) |
-|---------|-------------------|-----------|---------|-------------|
-| users | _id, username, email, passwordHash, roleId, status, createdAt | RF-001, RF-019 | email (único), username (único) | roleId → roles |
-| roles | _id, name, permissions[], description | RF-002 | name (único) | - |
-| forms | _id, title, description, structure[], status, createdBy, createdAt | RF-003, RF-004, RF-005 | status, createdBy | createdBy → users |
-| censuses | _id, name, formId, startDate, endDate, status, createdBy | RF-006, RF-007, RF-008, RF-009 | status, startDate | formId → forms, createdBy → users |
-| submissions | _id, censusId, centerId, responses[], status, submittedAt, validatedAt | RF-010, RF-011, RF-013, RF-014 | censusId, centerId, status | censusId → censuses |
-| responses | _id, submissionId, fieldId, value, validated | RF-010, RF-012 | submissionId | submissionId → submissions |
-| validations | _id, submissionId, validationType, passed, message | RF-012 | submissionId | submissionId → submissions |
-| notifications | _id, userId, title, message, type, read, createdAt | RF-017 | userId, createdAt | userId → users |
-| auditLogs | _id, userId, action, resourceType, resourceId, changes, timestamp | RF-018 | userId, timestamp | userId → users |
-| assignments | _id, technicianId, centerId, assignedAt, active | RF-020 | technicianId, centerId | technicianId → users |
+| Colección | Campos Principales | Requisitos | Índices / únicos | Referencias (ObjectId) | Estado |
+|---------|-------------------|-----------|---------|-------------|--------|
+| users | _id, username, email, passwordHash, roleId, status, createdAt, updatedAt | RF-001, RF-019 | email (único), username (único) | roleId → roles | Implementada |
+| roles | _id, name, description, permissions[], createdAt | RF-002 | name (único) | - | Implementada |
+| centers | _id, code, name, region, circuit, directorId, status | RF-010, RF-011, RF-020 | code (único), directorId (único) | directorId → users | Diseñada |
+| forms | _id, title, description, structure[], status, isDeleted, createdBy, createdAt | RF-003, RF-004, RF-005 | status, createdBy | createdBy → users | Diseñada |
+| censuses | _id, name, year, formId, startDate, endDate, status, createdBy | RF-006, RF-007, RF-008, RF-009 | status, startDate | formId → forms, createdBy → users | Diseñada |
+| submissions | _id, censusId, centerId, status, submittedBy, submittedAt, validatedAt | RF-010, RF-011, RF-013, RF-014 | (censusId, centerId) único | censusId → censuses, centerId → centers | Diseñada |
+| responses | _id, submissionId, fieldId, value | RF-010, RF-012 | (submissionId, fieldId) único | submissionId → submissions | Diseñada |
+| validations | _id, submissionId, technicianId, result, comment, checks[], createdAt | RF-012, RF-013, RF-014 | submissionId | submissionId → submissions, technicianId → users | Diseñada |
+| notifications | _id, userId, title, message, type, read, createdAt | RF-017 | userId, createdAt | userId → users | Diseñada |
+| auditLogs | _id, userId, action, resourceType, resourceId, changes, ip, timestamp | RF-018 | userId, timestamp | userId → users | Diseñada |
+| assignments | _id, technicianId, centerId, assignedAt, active | RF-020 | (centerId, active=true) único | technicianId → users, centerId → centers | Diseñada |
 
-**Nota de modelado:** al ser MongoDB una base de datos orientada a documentos, las relaciones se modelan por referencia (`ObjectId`) y no por llaves foráneas relacionales; la validación de esquema se implementa a nivel de aplicación con Mongoose.
+**Nota de modelado:** al ser MongoDB una base de datos orientada a documentos, las relaciones se modelan por referencia (`ObjectId`) y no por llaves foráneas relacionales; la validación de esquema se implementa a nivel de aplicación con Mongoose. El diccionario de datos completo (tipo, obligatoriedad, unicidad y reglas de validación por campo) y la cardinalidad de cada relación están en `ESPECIFICACION_DISENO_SICEN.md`, sección 6.
 
 ---
 
@@ -306,7 +351,8 @@ Sprint: [Sprint assignment]
 - **Total de Tasks de Testing:** 60+
 - **Componentes Frontend:** 25+
 - **Componentes Backend:** 10+
-- **Entidades de BD:** 9
+- **Colecciones de BD:** 11 (2 implementadas, 9 diseñadas)
+- **Endpoints API REST:** 37 (7 implementados + 30 diseñados), cobertura RF → endpoint 100%
 
 ---
 
@@ -325,4 +371,5 @@ Sprints balanceados por carga de trabajo
 ---
 
 **Documento Generado:** Septiembre 16, 2026  
-**Próxima Revisión:** Después de Sprint 1 en Jira
+**Última actualización:** Noviembre 10, 2026 (v2.0, Bitácora 3: trazabilidad requisito → endpoint)  
+**Próxima Revisión:** Al cierre del Sprint 2 en Jira

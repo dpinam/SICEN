@@ -85,11 +85,16 @@ Esta fase del proyecto implementa el módulo de **autenticación, autorización 
 
 | Método | Ruta | Descripción | Acceso |
 |--------|------|--------------|--------|
-| POST | `/api/auth/register` | Registra un usuario nuevo | Público |
+| POST | `/api/auth/register` | Registra un usuario nuevo (siempre con el rol Director de Centro Educativo) | Público |
 | POST | `/api/auth/login` | Inicia sesión y devuelve un token JWT | Público |
 | GET | `/api/users/me` | Perfil del usuario autenticado (incluye rol y permisos) | Autenticado |
 | GET | `/api/users` | Lista todos los usuarios | Jefatura DAE |
 | POST | `/api/users` | Registra un colaborador y le asigna un rol | Jefatura DAE |
+| PATCH | `/api/users/:id/status` | Activa o desactiva la cuenta de un colaborador | Jefatura DAE |
+| GET | `/api/roles` | Lista los roles disponibles para asignar | Jefatura DAE |
+| GET | `/api/health` | Verificación de estado del servicio | Público |
+
+El detalle completo de la API (endpoints implementados y diseñados, con su requisito asociado) está en `ESPECIFICACION_DISENO_SICEN.md`, sección 8.
 
 ### Frontend
 
